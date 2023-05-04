@@ -10979,7 +10979,7 @@ components:
           description: Array of secret keys objects.
           items:
             $ref: '#/components/schemas/SecretKeys'
-    401UnauthorizedError:
+    UnauthorizedError_401:
       type: object
       title: Unauthorized Error
       description: >-
@@ -11010,7 +11010,7 @@ components:
             of: `[a-f0-9]{32}`). Provide this ID when contacting the Belvo
             support team to accelerate investigations.
           example: 9e7b283c6efa449c9c028a16b5c249fb
-    400ValidationError:
+    ValidationError_400:
       type: object
       title: Validation Error
       description: >-
@@ -11051,7 +11051,7 @@ components:
           nullable: true
           description: Name of the field where the error was encountered.
           example: institution
-    408RequestTimeoutError:
+    RequestTimeoutError_408:
       type: object
       title: Request Timeout
       description: >-
@@ -11235,7 +11235,7 @@ components:
           description: Array of institution objects.
           items:
             $ref: '#/components/schemas/paymentInstitution'
-    404NotFoundError:
+    NotFoundError_400:
       type: object
       title: Not Found
       properties:
@@ -11582,7 +11582,7 @@ components:
           description: |
             The customer's phone number.
           example: 3210-9876
-    500UnexpectedError:
+    UnexpectedError_500:
       type: object
       title: Unexpected Error
       description: >-
@@ -11892,8 +11892,9 @@ components:
     BankAccountPseResponse:
       type: object
       title: Colombia 🇨🇴 PSE
-      oneOf:
-        - $ref: '#/components/schemas/BankAccountBusinessPse'
+      properties:
+        type:
+          $ref: '#/components/schemas/BankAccountBusinessPse'
     BankAccountPaginatedResponse:
       type: object
       properties:
@@ -13169,9 +13170,11 @@ components:
       type: object
       title: Colombia 🇨🇴 PSE
       description: Object containing the payer's bank account information.
-      oneOf:
-        - $ref: '#/components/schemas/TransactionBankAccountBodyPse'
-        - $ref: '#/components/schemas/BankAccountInformationPse'
+      properties:
+        type:
+          oneOf:
+            - $ref: '#/components/schemas/TransactionBankAccountBodyPse'
+            - $ref: '#/components/schemas/BankAccountInformationPse'
     paymentTransaction:
       type: object
       required:
@@ -35324,7 +35327,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/400ValidationError'
+                  $ref: '#/components/schemas/ValidationError'
         '408':
           description: Request Timeout Error
           content:
@@ -35332,7 +35335,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/408RequestTimeoutError'
+                  $ref: '#/components/schemas/RequestTimeoutError'
     get:
       tags:
         - Secret Keys
@@ -35358,7 +35361,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
   /payments/institutions/:
     get:
       tags:
@@ -35440,7 +35443,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
   /payments/institutions/{id}/:
     get:
       tags:
@@ -35473,7 +35476,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '404':
           description: Not Found Error
           content:
@@ -35481,7 +35484,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/404NotFoundError'
+                  $ref: '#/components/schemas/NotFoundError'
   /payments/customers/:
     post:
       tags:
@@ -35527,7 +35530,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/400ValidationError'
+                  $ref: '#/components/schemas/ValidationError'
         '401':
           description: Authentication Error
           content:
@@ -35535,7 +35538,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '500':
           description: Unexpected Error
           content:
@@ -35543,7 +35546,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/500UnexpectedError'
+                  $ref: '#/components/schemas/UnexpectedError'
     get:
       tags:
         - Customers
@@ -35654,7 +35657,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
   /payments/customers/{id}/:
     get:
       tags:
@@ -35694,7 +35697,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '404':
           description: Not Found Error
           content:
@@ -35702,7 +35705,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/404NotFoundError'
+                  $ref: '#/components/schemas/NotFoundError'
   /payments/bank-accounts/:
     post:
       tags:
@@ -35748,7 +35751,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/400ValidationError'
+                  $ref: '#/components/schemas/ValidationError'
         '401':
           description: Authentication Error
           content:
@@ -35756,7 +35759,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '408':
           description: Request Timeout Error
           content:
@@ -35764,7 +35767,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/408RequestTimeoutError'
+                  $ref: '#/components/schemas/RequestTimeoutError'
         '500':
           description: Unexpected Error
           content:
@@ -35772,7 +35775,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/500UnexpectedError'
+                  $ref: '#/components/schemas/UnexpectedError'
     get:
       tags:
         - Bank Accounts
@@ -35902,7 +35905,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
   /payments/bank-accounts/{id}/:
     get:
       tags:
@@ -35942,7 +35945,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '404':
           description: Not Found Error
           content:
@@ -35950,7 +35953,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/404NotFoundError'
+                  $ref: '#/components/schemas/NotFoundError'
   /payments/payment-links/:
     post:
       tags:
@@ -35982,7 +35985,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/400ValidationError'
+                  $ref: '#/components/schemas/ValidationError'
         '401':
           description: Authentication Error
           content:
@@ -35990,7 +35993,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '408':
           description: Request Timeout Error
           content:
@@ -35998,7 +36001,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/408RequestTimeoutError'
+                  $ref: '#/components/schemas/RequestTimeoutError'
         '500':
           description: Unexpected Error
           content:
@@ -36006,7 +36009,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/500UnexpectedError'
+                  $ref: '#/components/schemas/UnexpectedError'
     get:
       tags:
         - Payment Links
@@ -36135,7 +36138,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
   /payments/payment-links/{access_token}/:
     get:
       tags:
@@ -36175,7 +36178,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '404':
           description: Not Found Error
           content:
@@ -36183,7 +36186,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/404NotFoundError'
+                  $ref: '#/components/schemas/NotFoundError'
   /payments/payment-intents/:
     post:
       tags:
@@ -36213,7 +36216,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/400ValidationError'
+                  $ref: '#/components/schemas/ValidationError'
         '401':
           description: Authentication Error
           content:
@@ -36221,7 +36224,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '408':
           description: Request Timeout Error
           content:
@@ -36229,7 +36232,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/408RequestTimeoutError'
+                  $ref: '#/components/schemas/RequestTimeoutError'
         '500':
           description: Unexpected Error
           content:
@@ -36237,7 +36240,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/500UnexpectedError'
+                  $ref: '#/components/schemas/UnexpectedError'
     get:
       tags:
         - Payment Intents
@@ -36384,7 +36387,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
   /payments/payment-intents/{id}/:
     patch:
       tags:
@@ -36432,7 +36435,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/400ValidationError'
+                  $ref: '#/components/schemas/ValidationError'
         '404':
           description: Not Found Error
           content:
@@ -36440,7 +36443,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/404NotFoundError'
+                  $ref: '#/components/schemas/NotFoundError'
     get:
       tags:
         - Payment Intents
@@ -36471,7 +36474,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '404':
           description: Not Found Error
           content:
@@ -36479,7 +36482,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/404NotFoundError'
+                  $ref: '#/components/schemas/NotFoundError'
   /payments/transactions/:
     get:
       tags:
@@ -36657,7 +36660,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
   /payments/transactions/{id}/:
     get:
       tags:
@@ -36688,7 +36691,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/401UnauthorizedError'
+                  $ref: '#/components/schemas/UnauthorizedError'
         '404':
           description: Not Found Error
           content:
@@ -36696,7 +36699,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/404NotFoundError'
+                  $ref: '#/components/schemas/NotFoundError'
 x-readme:
   explorer-enabled: true
   proxy-enabled: true
