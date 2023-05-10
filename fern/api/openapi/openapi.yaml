@@ -24461,6 +24461,12 @@ paths:
           schema:
             type: string
             example: link,balance,account
+      x-fern-async-config:
+        discriminant: 
+          type: header
+          name: X-Belvo-Request-Mode
+          value: async
+        response-status-code: 202
       requestBody:
         required: true
         content:
