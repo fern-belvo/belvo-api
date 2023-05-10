@@ -470,6 +470,7 @@ components:
           items:
             $ref: "#/components/schemas/Link"
     UnauthorizedError:
+      x-fern-type-name: UnauthorizedErrorBody
       type: object
       title: Unauthorized Error
       description: >-
@@ -1291,6 +1292,7 @@ components:
     NotFoundError:
       type: object
       title: Not Found
+      x-fern-type-name: NotFoundErrorBody
       properties:
         code:
           type: string
@@ -2194,6 +2196,7 @@ components:
     RequestTimeoutError:
       type: object
       title: Request Timeout
+      x-fern-type-name: RequestTimeoutErrorBody
       description: >-
         Belvo has a limit regarding the time it takes to log in, retrieve
         account data, and log out. A timeout occurs when there is a very high
