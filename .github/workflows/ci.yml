@@ -36,4 +36,4 @@ jobs:
           FERN_POSTMAN_API_KEY: ${{ secrets.FERN_POSTMAN_API_KEY }}
           FERN_POSTMAN_WORKSPACE_ID: ${{ secrets.FERN_POSTMAN_WORKSPACE_ID }}
           FERN_TOKEN: ${{ secrets.FERN_TOKEN }}
-        run: fern generate --group publish  --log-level debug # --version ${{ github.ref_name }}
+        run: fern generate --group publish  --log-level debug --version ${{ github.ref_name }}
