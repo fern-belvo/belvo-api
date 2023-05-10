@@ -31,6 +31,7 @@ jobs:
 
       - name: Release SDKs, OpenAPI, Postman
         env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
           FERN_NPM_TOKEN: ${{ secrets.FERN_NPM_TOKEN }}
           FERN_POSTMAN_API_KEY: ${{ secrets.FERN_POSTMAN_API_KEY }}
           FERN_POSTMAN_WORKSPACE_ID: ${{ secrets.FERN_POSTMAN_WORKSPACE_ID }}
