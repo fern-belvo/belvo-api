@@ -11,4 +11,5 @@ groups:
           repository: fern-belvo/belvo-node
         config: 
           namespaceExport: Belvo
+          skipResponseValidation: true
           
