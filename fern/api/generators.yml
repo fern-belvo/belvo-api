@@ -14,7 +14,7 @@ groups:
         version: 0.2.1
         output:
           location: pypi
-          package-name: belvodev
+          package-name: fern-belvo
           token: ${PYPI_TOKEN}
         github:
           repository: fern-belvo/belvo-python
