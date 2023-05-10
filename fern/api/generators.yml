@@ -2,13 +2,13 @@ groups:
   publish:
     generators:
       - name: fernapi/fern-typescript-sdk
-        version: 0.2.2
+        version: 0.5.20
         output:
           location: npm
           package-name: '@fern-api/belvo'
           token: ${FERN_NPM_TOKEN}
         github:
-          repository: fern-belvo/belvo-client-node
+          repository: fern-belvo/belvo-node
           
       - name: fernapi/fern-python-sdk
         version: 0.2.1
@@ -17,4 +17,4 @@ groups:
           package-name: belvodev
           token: ${PYPI_TOKEN}
         github:
-          repository: fern-belvo/belvo-client-python
+          repository: fern-belvo/belvo-python

@@ -17,7 +17,7 @@ jobs:
 
   fern-release: 
     needs: fern-check
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    # if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -35,4 +35,4 @@ jobs:
           FERN_POSTMAN_API_KEY: ${{ secrets.FERN_POSTMAN_API_KEY }}
           FERN_POSTMAN_WORKSPACE_ID: ${{ secrets.FERN_POSTMAN_WORKSPACE_ID }}
           FERN_TOKEN: ${{ secrets.FERN_TOKEN }}
-        run: fern generate --group publish --version ${{ github.ref_name }} --log-level debug
+        run: fern generate --group publish  --log-level debug # --version ${{ github.ref_name }}
