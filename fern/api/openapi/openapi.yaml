@@ -253,10 +253,14 @@ info:
     url: 'https://files.readme.io/5111448-belvo-for-developers.svg'
     altText: Belvo logo
 servers:
+  - url: https://api.belvo.com/ 
+    x-fern-server-name: Production
   - url: 'https://sandbox.belvo.com'
     description: Sandbox
+    x-fern-server-name: Sandbox
   - url: 'https://development.belvo.com'
     description: Development
+    x-fern-server-name: Development
 security:
   - basicAuth: []
 components:
