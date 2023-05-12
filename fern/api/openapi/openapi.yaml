@@ -287,7 +287,9 @@ components:
         in 5
         Minutes](https://developers.belvo.com/docs/get-started-in-5-minutes)
         DevPortal article.
-  responses: 
+      x-fern-username-variable-name: secretId
+      x-fern-password-variable-name: secretPassword
+  responses:
     BadRequestError:
       content:
         application/json:
@@ -492,7 +494,7 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `authentication_failed` errors, the description is:
 
@@ -770,10 +772,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `too_many_sessions` errors, the description is:
-              
+
               - `Impossible to login, a session is already opened with the institution for these credentials`.
           example: >-
             Impossible to login, a session is already opened with the
@@ -811,7 +813,7 @@ components:
         message:
           type: string
           description: >-
-            A short description of the error. 
+            A short description of the error.
 
 
             For `login_error` errors, the description can be one of the
@@ -856,10 +858,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `session_expired` errors, the description is:
-              
+
               - `The session you are trying to resume has expired, please start again from register/retrieve endpoint`.
           example: >-
             The session you are trying to resume has expired, please start again
@@ -896,10 +898,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `session_expired` errors, the description can be (among others):
-              
+
               - `This field is required.`
               - `Object with name=narnia does not exist.`
               - `This field may not be null.`
@@ -940,10 +942,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `institution_down` errors, the description is:
-              
+
               - `The financial institution is down, try again later`.
           example: The financial institution is down, try again later
         request_id:
@@ -979,7 +981,7 @@ components:
             A short description of the error.
 
             For `institution_unavailable` errors, the description is:
-              
+
               - `The financial institution is unavailable`.
           example: The financial institution is unavailable
         request_id:
@@ -1011,10 +1013,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `institution_inactive` errors, the description is:
-              
+
               - `The institution has been temporarily deactivated`.
           example: The institution has been temporarily deactivated
         request_id:
@@ -1047,10 +1049,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `unsupported_operation` errors, the description is:
-              
+
               - `The resource you are trying to access is not supported by this institution`.
           example: >-
             The resource you are trying to access is not supported by this
@@ -1085,10 +1087,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `invalid_link` errors, the description is:
-              
+
               - `The link has been invalidated. You may need to update link credentials`.
           example: >-
             The link has been invalidated. You may need to update link
@@ -1126,10 +1128,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `unconfirmed_link` errors, the description is:
-              
+
               - `The link creation has not been completed yet`.
           example: The link creation has not been completed yet
         request_id:
@@ -1187,10 +1189,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `token_required` errors, the description is:
-              
+
               - `A MFA token is required by the institution to login`.
           example: A MFA token is required by the institution to login
         request_id:
@@ -1244,10 +1246,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `unexpected_error` errors, the description is:
-              
+
               - `Belvo is unable to process the request due to an internal system issue or to an unsupported response from an institution`.
           example: >-
             Belvo is unable to process the request due to an internal system
@@ -1308,10 +1310,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `not_found` errors, the description is:
-              
+
               - `Not found`
           example: Not found
         request_id:
@@ -1447,10 +1449,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `invalid_access_mode_switch` errors, the description is:
-              
+
               - `This link doesn't have stored credentials hence it can't be switched to recurrent mode"`.
           example: >-
             This link doesn't have stored credentials hence it can't be switched
@@ -2217,10 +2219,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `request_timeout` errors, the description is:
-              
+
               - `The request timed out, you can retry asking for less data by changing your query parameters`.
           example: >-
             The request timed out, you can retry asking for less data by
@@ -2577,7 +2579,7 @@ components:
           - `OPEN`: The bill is currently open. (Note: This is the main bill that Belvo retrieves balance data from).
           - `FUTURE`: The bill is pending.
           - `null`: No bill status was identified.
-          
+
         ℹ️ Note: Some banks consider CLOSED as PAID.
       example: PAID
     TransactionCreditCardData:
@@ -3154,7 +3156,7 @@ components:
               - `ACCOUNTS`
               - `BALANCES`
               - `INCOMES`
-              - `INVESTMENTS_PORTFOLIOS` 
+              - `INVESTMENTS_PORTFOLIOS`
               - `INVESTMENTS_TRANSACTIONS` *This field has been deprecated.*
               - `INVOICES`
               - `OWNERS`
@@ -3508,7 +3510,7 @@ components:
           type: string
           nullable: true
           description: >
-            The unit of measure, as defined by the legal entity in the country. 
+            The unit of measure, as defined by the legal entity in the country.
 
             - 🇲🇽 Mexico [SAT catalog
             reference](https://developers.belvo.com/docs/sat-catalogs#unit-code)
@@ -3599,11 +3601,11 @@ components:
           nullable: true
           description: |
             The currency of the related invoice. For example:
-                
+
             - 🇧🇷 BRL (Brazilian Real)
             - 🇨🇴 COP (Colombian Peso)
             - 🇲🇽 MXN (Mexican Peso)
-              
+
               Please note that other currencies other than in the list above may be returned.
           example: MXN
         payment_method:
@@ -4053,7 +4055,7 @@ components:
           type: string
           description: >
             The invoice's usage code, as defined by the legal entity of the
-            country. 
+            country.
 
 
             - 🇲🇽 Mexico [SAT catalog reference
@@ -4084,7 +4086,7 @@ components:
           nullable: true
           description: |
             The currency of the invoice. For example:
-             
+
              - 🇧🇷 BRL (Brazilian Real)
              - 🇨🇴 COP (Colombian Peso)
              - 🇲🇽 MXN (Mexican Peso)
@@ -4196,7 +4198,7 @@ components:
           description: >
             Indicates if the sender is a business or an individual. Can be
             either:
-              
+
               - `Persona Jurídica`
               - `Persona Natural`
           example: Persona Natural
@@ -4264,7 +4266,7 @@ components:
           description: >
             Indicates if the receiver is a business or an individual. Can be
             either:
-              
+
               - `Persona Jurídica`
               - `Persona Natural`
           example: Persona Natural
@@ -4914,7 +4916,7 @@ components:
           nullable: true
           description: |
             The currency of the invoice. For example:
-             
+
              - 🇧🇷 BRL (Brazilian Real)
              - 🇨🇴 COP (Colombian Peso)
              - 🇲🇽 MXN (Mexican Peso)
@@ -7022,7 +7024,7 @@ components:
         - DEPOSIT
         - UNKNOWN
       description: |-
-        The categories of the incomes you want to get information for. 
+        The categories of the incomes you want to get information for.
         You can send through one or more of the following values:
           - `SALARY`
           - `GOVERNMENT`
@@ -7132,10 +7134,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `invalid_period` errors, the description is:
-              
+
               - `The number of days between date_from and date_to must be at least 90 days`.
           example: >-
             The number of days between date_from and date_to must be at least 90
@@ -10104,7 +10106,7 @@ components:
       description: >
         The event that caused the change in employment status or salary. We
         return one of the following values:
-          
+
           - `DISMISSED_RESIGNED`
           - `SALARY_MODIFICATION`
           - `HIRED`
@@ -10356,7 +10358,7 @@ components:
         - INFLOW
       description: |
         The direction of the transaction:
-          
+
         - `INFLOW` indicates money coming into the account.
       example: INFLOW
     EyodIncomeVerificationBodyRequest:
@@ -10498,10 +10500,10 @@ components:
         message:
           type: string
           description: |-
-            A short description of the error. 
+            A short description of the error.
 
             For `access_to_resource_denied` errors, the description is:
-              
+
               - `You don't have access to this resource.`.
           example: You don't have access to this resource.
         request_id:
@@ -10667,7 +10669,7 @@ components:
         The name of the category to which this transaction belongs. For more
         info about this feature, check our [Transaction
         categorization](https://developers.belvo.com/docs/banking#categorizing-transactions)
-        article. 
+        article.
 
 
         We return one of the following enum values:
@@ -10776,7 +10778,7 @@ components:
         The transactions subcategory. For more info about this feature, check
         our [Transaction
         categorization](https://developers.belvo.com/docs/banking#categorizing-transactions)
-        article. 
+        article.
 
 
         We return one of the following enum values:
@@ -11142,7 +11144,7 @@ components:
             either:
 
 
-              - `Bearer` and a token (for Bearer authentication). 
+              - `Bearer` and a token (for Bearer authentication).
               - `Basic` and a base64-encoded username:password string (for Basic authentication).
           example: Bearer hv7alD71j0dzXf09iKfg7u
     EnumPaymentsCountry:
@@ -11307,7 +11309,7 @@ components:
 
           - `INDIVIDUAL`
           - `BUSINESS`
-            
+
 
         **Notes:** For 🇨🇴 Colombia's PSE, you can only create customers of
         type `INDIVIDUAL`.
@@ -12355,7 +12357,7 @@ components:
       description: |-
         Selected payment method type.
 
-          - For 🇧🇷 Brazil's OFPI, the value must be `open_finance`.  
+          - For 🇧🇷 Brazil's OFPI, the value must be `open_finance`.
           - For 🇨🇴 Colombia's PSE, the value must be `pse`.
       example: open_finance
     EnumPaymentLinkProvider:
@@ -12364,10 +12366,10 @@ components:
         - belvo
         - payments_way
       description: |
-        The provider used for the payment link. 
+        The provider used for the payment link.
 
 
-        - For 🇧🇷 Brazil's OFPI, the value must be `belvo`.  
+        - For 🇧🇷 Brazil's OFPI, the value must be `belvo`.
         - For 🇨🇴 Colombia's PSE, the value must be `payments_way`.
       example: belvo
     PaymentLinksPaymentMethodDetailsBodyOfpi:
@@ -12655,7 +12657,7 @@ components:
           default: false
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When set to `true`, you need to confirm the payment by making a PATCH request sending through `confirm: true`.
           example: false
@@ -12690,7 +12692,7 @@ components:
           default: false
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When set to `true`, you need to confirm the payment by making a PATCH request sending through `confirm: true`.
           example: false
@@ -12812,7 +12814,7 @@ components:
           default: true
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When set to `true`, you need to confirm the payment by making a PATCH request sending through `confirm: true`.
           example: true
@@ -12848,7 +12850,7 @@ components:
           default: false
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When set to `true`, you need to confirm the payment by making a PATCH request sending through `confirm: true`.
           example: false
@@ -12884,7 +12886,7 @@ components:
           default: false
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When set to `true`, you need to confirm the payment by making a PATCH request sending through `confirm: true`.
           example: false
@@ -12920,7 +12922,7 @@ components:
           default: false
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When set to `true`,you need to confirm the payment by making a PATCH request sending through `confirm: true`.
           example: false
@@ -13714,7 +13716,7 @@ components:
           default: false
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When the value is `true`, you'll need to make a PATCH request sending through `confirm: true` to confirm the payment.
           example: false
@@ -13756,7 +13758,7 @@ components:
           default: false
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When the value is `true`, you'll need to make a PATCH request sending through `confirm: true` to confirm the payment.
           example: false
@@ -13795,7 +13797,7 @@ components:
           default: true
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When the value is `true`, you'll need to make a PATCH request sending through `confirm: true` to confirm the payment.
           example: true
@@ -13832,10 +13834,10 @@ components:
           type: boolean
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. This value will return: 
+            confirmed. This value will return:
 
-              - `false` when a customer wants to pay for the very first time. This is so because you still need to input information about your customer in the following steps to process a payment successfully. 
-              - `true` when a customer wants to pay and this is not their first time. This is so because the payment intent has all the information needed about the customer to process a payment. 
+              - `false` when a customer wants to pay for the very first time. This is so because you still need to input information about your customer in the following steps to process a payment successfully.
+              - `true` when a customer wants to pay and this is not their first time. This is so because the payment intent has all the information needed about the customer to process a payment.
 
 
             **Note:** When the value is `true`, you'll need to confirm the
@@ -13907,7 +13909,7 @@ components:
           default: true
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When the value is `true`, you'll need to make a PATCH request sending through `confirm: true` to confirm the payment.
           example: true
@@ -13949,7 +13951,7 @@ components:
           default: true
           description: >-
             Boolean that indicates whether the payment intent is ready to be
-            confirmed. 
+            confirmed.
 
               **Note:** When the value is `true`, you'll need to make a PATCH request sending through `confirm: true` to confirm the payment.
           example: true
@@ -14545,7 +14547,7 @@ components:
           type: boolean
           description: >-
             Boolean that indicates whether this request confirms the payment
-            intent. 
+            intent.
 
 
             **Note:** You'll need to send this parameter set to `true` when the
@@ -19980,7 +19982,7 @@ tags:
 
 
       | API Endpoint                |
-      Description                                                              
+      Description
       | Supported institutions |
 
       | --------------------------- |
@@ -20004,7 +20006,7 @@ tags:
   - name: Accounts
     description: >-
       An **account** is the representation of a bank account inside a financial
-      institution. A user can have one or more accounts in an institution. 
+      institution. A user can have one or more accounts in an institution.
 
 
       For example, one user (or link) can have a checking account, several
@@ -20024,12 +20026,12 @@ tags:
 
       > 🚧 Scheduled field deprecation
 
-      > 
+      >
 
       > Please note that we will soon be deprecating the following fields in our
       `loan_data` object:
 
-      > 
+      >
 
       > - `cutting_date`
 
@@ -20290,16 +20292,16 @@ tags:
       </ul>
 
 
-      > 📘 
+      > 📘
 
-      > 
+      >
 
       > Savings accounts that do not have any associated transactions (for
       example, some _poupança_ accounts in Brazil) will not contain accurate
       Balance information. We do not recommend using the Balance endpoint for
-      these types of accounts. 
+      these types of accounts.
 
-      > 
+      >
 
       > Savings accounts vary from institution to institution, so we recommend
       that you first use our [Retrieve transactions for a
@@ -20346,7 +20348,7 @@ tags:
 
       # Filtering results to have balances greater than 5000
 
-      https://api.belvo.com/api/balances/?balance__gt=5000 
+      https://api.belvo.com/api/balances/?balance__gt=5000
 
 
       # Filtering results to have balances greater than 5000 and in Brazilian
@@ -20606,7 +20608,7 @@ tags:
   - name: Enrichment API introduction
     description: >-
       Belvo's Enrichment API are a set of endpoints that return additional
-      insights on your user's banking data. 
+      insights on your user's banking data.
 
 
       - **Incomes**: Use this endpoint to verify your user's income.
@@ -20804,7 +20806,7 @@ tags:
       of features can be used as building blocks to create or iterate on your
       credit score using transactional banking data to improve the predictive
       power of your models. You can use these components as you require and make
-      the most sense for your specific use case. 
+      the most sense for your specific use case.
 
 
       We take up to 90 days of transactional data from the user's checking,
@@ -20886,7 +20888,7 @@ tags:
 
 
       | API Endpoint                 |
-      Description                                                                                                                          
+      Description
       |
 
       | ---------------------------- |
@@ -20936,7 +20938,7 @@ tags:
 
 
       | API Endpoint                 |
-      Description                                                                                                                          
+      Description
       |
 
       | ---------------------------- |
@@ -21023,7 +21025,7 @@ tags:
       https://sandbox.belvo.com/api/invoices/?link=link-id
 
 
-      # Filtering results so that you get Tax Returns from two links 
+      # Filtering results so that you get Tax Returns from two links
 
       # and are of type normal and their status is vigente:
 
@@ -21216,7 +21218,7 @@ tags:
   - name: Tax status
     description: >-
       Our **Tax status** endpoint lets you retrieve information about a person's
-      or business's tax situation, according to the country's tax authority. 
+      or business's tax situation, according to the country's tax authority.
 
 
       - For SAT (Mexico), this information is extracted from the _Constancia de
@@ -21336,7 +21338,7 @@ tags:
       https://sandbox.belvo.com/api/tax-retentions/?link=link-id
 
 
-      # Filtering results so that you get Tax Retentions from two links 
+      # Filtering results so that you get Tax Retentions from two links
 
       https://api.belvo.com/api/tax-retentions/?link=link-id1,link-id2
 
@@ -21649,7 +21651,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -22655,9 +22657,9 @@ paths:
         you want to delete and making the delete request.
 
           > 🚧 **Rate limiting and IP blocking**
-          > 
+          >
           > An important technical note for performing operations in batches is to take into consideration our rate-limiting: up to 80 requests every 30 seconds. If you exceed this limit, you run the risk of Belvo blocking your IP from making further requests.
-          > 
+          >
           > For more information, or if your IP address has been blocked, please contact our [support team](https://support.belvo.com/hc/en-us/requests/new).
       parameters:
         - name: id
@@ -22776,7 +22778,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -23168,7 +23170,7 @@ paths:
         Retrieve accounts from an existing link.
 
           > 🚧 Scheduled field deprecation
-          > 
+          >
           > Please note that we will soon be deprecating the following fields in our `loan_data` object:
           > - `cutting_date`
           > - `cutting_day`
@@ -23374,7 +23376,7 @@ paths:
         MFA token was required by the institution.
 
           > 🚧 Scheduled field deprecation
-          > 
+          >
           > Please note that we will soon be deprecating the following fields in our `loan_data` object:
           > - `cutting_date`
           > - `cutting_day`
@@ -24462,7 +24464,7 @@ paths:
             type: string
             example: link,balance,account
       x-fern-async-config:
-        discriminant: 
+        discriminant:
           type: header
           name: X-Belvo-Request-Mode
           value: async
@@ -25087,7 +25089,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -26004,7 +26006,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -26340,7 +26342,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -27147,7 +27149,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -28129,7 +28131,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -28888,7 +28890,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -29503,7 +29505,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -30101,7 +30103,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -30311,7 +30313,7 @@ paths:
                 $ref: "#/components/schemas/Income"
         "400":
           $ref: "#/components/responses/BadRequestError"
-                    
+
         "401":
           description: Authentication to Belvo API failed
           content:
@@ -30880,7 +30882,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -31617,7 +31619,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -32301,7 +32303,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -32702,7 +32704,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -32904,7 +32906,7 @@ paths:
                   $ref: "#/components/schemas/RiskInsights"
         "400":
           $ref: "#/components/responses/BadRequestError"
-                    
+
         "401":
           description: Authentication to Belvo API failed
           content:
@@ -33441,7 +33443,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -33787,7 +33789,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -34431,7 +34433,7 @@ paths:
           in: query
           description: >
             Indicates how many results to return per page. By default we return
-            100 results per page. 
+            100 results per page.
 
 
             ℹ️ The minimum number of results returned per page is 1 and the
@@ -34887,7 +34889,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/SecretKeys"
         "400":
-          
+
           $ref: "#/components/responses/BadRequestError"
         "408":
           description: Request Timeout Error
@@ -34948,7 +34950,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/paymentWebhook"
         "400":
-          
+
           $ref: "#/components/responses/BadRequestError"
         "401":
           description: Authentication to Belvo API failed
@@ -35240,7 +35242,7 @@ paths:
                 PseIndividual:
                   $ref: "#/components/examples/ResponseCustomerPseIndividual"
         "400":
-          
+
           $ref: "#/components/responses/BadRequestError"
         "401":
           description: Authentication Error
@@ -35333,7 +35335,7 @@ paths:
           in: query
           description: >-
             Return results for one or more customers that match either the name
-            or email you searched for. 
+            or email you searched for.
 
 
             **Note:** This filter supports both full and partial search queries,
@@ -35341,7 +35343,7 @@ paths:
             for `car` may match the following values:
 
               - `Carlos Vives`
-              - `Carmen Domínguez` 
+              - `Carmen Domínguez`
               - `carlos.vives@musicacolombia.co`
           schema:
             type: string
@@ -35456,7 +35458,7 @@ paths:
                 PseInfo:
                   $ref: "#/components/examples/ResponseBankAccountOrganizationPse"
         "400":
-          
+
           $ref: "#/components/responses/BadRequestError"
         "401":
           description: Authentication Error
@@ -35685,7 +35687,7 @@ paths:
                   - $ref: "#/components/schemas/PaymentLinkOfpi"
                   - $ref: "#/components/schemas/PaymentLinkPse"
         "400":
-          
+
           $ref: "#/components/responses/BadRequestError"
         "401":
           description: Authentication Error
@@ -35808,7 +35810,7 @@ paths:
             enum:
               - created_at
               - "-created_at"
-            x-enum-names: 
+            x-enum-names:
               created_at: Ascending
               -created_at: Descending
             example: "-created_at"
@@ -35816,14 +35818,14 @@ paths:
           in: query
           description: >-
             Return results for one or more payment links that match the
-            description you searched for. 
+            description you searched for.
 
 
             **Note:** This filter supports both full and partial search queries,
             with a minimum of three characters required. For example, searching
             for `trai` may match the following values:
 
-              - `Awesome training sneakers` 
+              - `Awesome training sneakers`
               - `Training equipment`
           schema:
             type: string
@@ -35856,7 +35858,7 @@ paths:
           in: path
           description: >-
             The `access_token` of the payment link you want to get detailed
-            information about. 
+            information about.
 
 
             **Note:** You can retrieve the `access_token` for a payment link by
@@ -35914,7 +35916,7 @@ paths:
                 oneOf:
                   - $ref: "#/components/schemas/PaymentIntentPse"
         "400":
-          
+
           $ref: "#/components/responses/BadRequestError"
         "401":
           description: Authentication Error
