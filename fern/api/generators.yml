@@ -9,7 +9,17 @@ groups:
           token: ${FERN_NPM_TOKEN}
         github:
           repository: fern-belvo/belvo-node
-        config: 
+        config:
           namespaceExport: Belvo
           skipResponseValidation: true
-          
+      - name: fernapi/fern-python-sdk
+        version: 0.3.6-rc3
+        output:
+          location: pypi
+          package-name: 'fern-belvo'
+          token: ${PYPI_TOKEN}
+        github:
+          repository: fern-belvo/belvo-python
+        config:
+          client_class_name: Belvo
+
