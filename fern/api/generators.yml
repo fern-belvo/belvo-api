@@ -13,7 +13,7 @@ groups:
           namespaceExport: Belvo
           skipResponseValidation: true
       - name: fernapi/fern-python-sdk
-        version: 0.3.6-rc3
+        version: 0.3.6-rc3-1-g20e3018e
         output:
           location: pypi
           package-name: 'fern-belvo'
