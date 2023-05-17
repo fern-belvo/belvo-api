@@ -3,6 +3,7 @@
 Tagging a release on this repository will update the:
 
 - [Node.js SDK repo](https://github.com/fern-belvo/belvo-node)
+- [Python SDK repo](https://github.com/fern-belvo/belvo-python)
 - _More SDKs to come..._
 
 ## What is in this repository?
