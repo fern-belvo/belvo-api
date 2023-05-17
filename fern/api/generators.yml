@@ -6,7 +6,7 @@ groups:
         output:
           location: npm
           package-name: '@fern-api/belvo'
-          token: ${FERN_NPM_TOKEN}
+          token: ${NPM_TOKEN}
         github:
           repository: fern-belvo/belvo-node
         config:
@@ -16,10 +16,19 @@ groups:
         version: 0.3.6-rc4-1-gbffae297
         output:
           location: pypi
-          package-name: 'fern-belvo'
+          package-name: fern-belvo
           token: ${PYPI_TOKEN}
         github:
           repository: fern-belvo/belvo-python
         config:
           client_class_name: Belvo
+      - name: fernapi/fern-java-sdk
+        version: 0.3.4-3-gbd7bb5c
+        output:
+          location: maven
+          coordinate: io.github.fern-api:belvo
+          username: ${MAVEN_USERNAME}
+          password: ${MAVEN_TOKEN}
+        github:
+          repository: fern-belvo/belvo-java 
 
