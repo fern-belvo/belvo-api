@@ -28,7 +28,7 @@ groups:
           location: maven
           coordinate: io.github.fern-api:belvo
           username: ${MAVEN_USERNAME}
-          password: ${MAVEN_TOKEN}
+          password: ${MAVEN_PASSWORD}
         github:
           repository: fern-belvo/belvo-java 
 
